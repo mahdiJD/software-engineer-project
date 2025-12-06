@@ -1,0 +1,93 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="diagram1" name="Use Case Diagram">
+    <mxGraphModel dx="1354" dy="770" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Actors -->
+        <mxCell id="actor_customer" value="مشتری" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="60" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="actor_admin" value="مدیر سیستم" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="80" y="380" width="60" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- System Boundary -->
+        <mxCell id="system_boundary" value="سیستم فروشگاه آنلاین" style="swimlane;childLayout=stackLayout;horizontal=1;rounded=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="220" y="60" width="600" height="500" as="geometry"/>
+        </mxCell>
+
+        <!-- Use Cases -->
+
+        <mxCell id="uc_browse" value="مشاهده محصولات" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="system_boundary">
+          <mxGeometry x="60" y="80" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="uc_search" value="جستجوی محصول" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="system_boundary">
+          <mxGeometry x="300" y="80" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="uc_add_cart" value="افزودن به سبد" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="system_boundary">
+          <mxGeometry x="60" y="180" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="uc_register" value="ثبت‌نام / ورود" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="system_boundary">
+          <mxGeometry x="300" y="180" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="uc_checkout" value="ثبت سفارش" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="system_boundary">
+          <mxGeometry x="60" y="280" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="uc_payment" value="پرداخت آنلاین" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="system_boundary">
+          <mxGeometry x="300" y="280" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="uc_manage_products" value="مدیریت محصولات" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="system_boundary">
+          <mxGeometry x="60" y="380" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="uc_manage_orders" value="مدیریت سفارش‌ها" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="system_boundary">
+          <mxGeometry x="300" y="380" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Connections -->
+
+        <mxCell id="edge1" edge="1" parent="1" source="actor_customer" target="uc_browse">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge2" edge="1" parent="1" source="actor_customer" target="uc_search">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge3" edge="1" parent="1" source="actor_customer" target="uc_add_cart">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge4" edge="1" parent="1" source="actor_customer" target="uc_register">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge5" edge="1" parent="1" source="actor_customer" target="uc_checkout">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge6" edge="1" parent="1" source="actor_customer" target="uc_payment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge7" edge="1" parent="1" source="actor_admin" target="uc_manage_products">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge8" edge="1" parent="1" source="actor_admin" target="uc_manage_orders">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
