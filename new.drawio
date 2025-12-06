@@ -1,0 +1,149 @@
+<mxfile host="app.diagrams.net">
+    <diagram name="Use Case Diagram - Digikala" id="use-case-diagram">
+        <mxGraphModel dx="140" dy="70" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                
+                <!-- Actors -->
+                <mxCell id="Guest" value="Guest" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="100" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="Customer" value="Customer" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="200" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="Seller" value="Seller" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="350" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="Admin" value="Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="500" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="PaymentGateway" value="Payment Gateway" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="700" y="250" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="Warehouse" value="Warehouse" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="700" y="400" width="30" height="60" as="geometry"/>
+                </mxCell>
+                
+                <!-- Use Cases for Guest -->
+                <mxCell id="UC1" value="View Products" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="80" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC2" value="Search Product" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="130" width="120" height="40" as="geometry"/>
+                </mxCell>
+                
+                <!-- Use Cases for Customer -->
+                <mxCell id="UC3" value="Register" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="190" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC4" value="Login" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="240" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC5" value="Add to Cart" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="290" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC6" value="Place Order" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="340" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC7" value="View Order History" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="390" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC8" value="Filter Products" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="130" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC9" value="View Product Details" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="190" width="120" height="40" as="geometry"/>
+                </mxCell>
+                
+                <!-- Use Cases for Seller -->
+                <mxCell id="UC10" value="Add Product" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="470" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC11" value="Update Stock" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="520" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC12" value="View Orders" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="570" width="120" height="40" as="geometry"/>
+                </mxCell>
+                
+                <!-- Use Cases for Admin -->
+                <mxCell id="UC13" value="Manage Users" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="470" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC14" value="Manage Products" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="520" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="UC15" value="Generate Reports" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="570" width="120" height="40" as="geometry"/>
+                </mxCell>
+                
+                <!-- Payment Gateway Use Case -->
+                <mxCell id="UC16" value="Online Payment" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="340" width="120" height="40" as="geometry"/>
+                </mxCell>
+                
+                <!-- Connections -->
+                <!-- Guest connections -->
+                <mxCell id="C1" style="endArrow=open;html=1;" edge="1" parent="1" source="Guest" target="UC1"/>
+                <mxCell id="C2" style="endArrow=open;html=1;" edge="1" parent="1" source="Guest" target="UC2"/>
+                
+                <!-- Customer connections -->
+                <mxCell id="C3" style="endArrow=open;html=1;" edge="1" parent="1" source="Customer" target="UC3"/>
+                <mxCell id="C4" style="endArrow=open;html=1;" edge="1" parent="1" source="Customer" target="UC4"/>
+                <mxCell id="C5" style="endArrow=open;html=1;" edge="1" parent="1" source="Customer" target="UC5"/>
+                <mxCell id="C6" style="endArrow=open;html=1;" edge="1" parent="1" source="Customer" target="UC6"/>
+                <mxCell id="C7" style="endArrow=open;html=1;" edge="1" parent="1" source="Customer" target="UC7"/>
+                <mxCell id="C8" style="endArrow=open;html=1;" edge="1" parent="1" source="Customer" target="UC8"/>
+                <mxCell id="C9" style="endArrow=open;html=1;" edge="1" parent="1" source="Customer" target="UC9"/>
+                <mxCell id="C10" style="endArrow=open;html=1;" edge="1" parent="1" source="Customer" target="UC16"/>
+                
+                <!-- Seller connections -->
+                <mxCell id="C11" style="endArrow=open;html=1;" edge="1" parent="1" source="Seller" target="UC10"/>
+                <mxCell id="C12" style="endArrow=open;html=1;" edge="1" parent="1" source="Seller" target="UC11"/>
+                <mxCell id="C13" style="endArrow=open;html=1;" edge="1" parent="1" source="Seller" target="UC12"/>
+                
+                <!-- Admin connections -->
+                <mxCell id="C14" style="endArrow=open;html=1;" edge="1" parent="1" source="Admin" target="UC13"/>
+                <mxCell id="C15" style="endArrow=open;html=1;" edge="1" parent="1" source="Admin" target="UC14"/>
+                <mxCell id="C16" style="endArrow=open;html=1;" edge="1" parent="1" source="Admin" target="UC15"/>
+                
+                <!-- Payment Gateway connection -->
+                <mxCell id="C17" style="endArrow=open;html=1;" edge="1" parent="1" source="PaymentGateway" target="UC16"/>
+                
+                <!-- Warehouse connection to Place Order -->
+                <mxCell id="C18" style="endArrow=open;html=1;" edge="1" parent="1" source="Warehouse" target="UC6"/>
+                
+                <!-- Include relationships -->
+                <mxCell id="I1" value="«include»" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="200" y="330" width="60" height="30" relative="1" as="geometry">
+                        <mxPoint x="170" y="360" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="E1" style="endArrow=open;html=1;dashed=1;" edge="1" parent="1" source="UC6" target="UC16">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                
+                <!-- Extend relationships -->
+                <mxCell id="E2" value="«extend»" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="250" y="150" width="60" height="30" relative="1" as="geometry">
+                        <mxPoint x="240" y="150" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="E3" style="endArrow=open;html=1;dashed=1;" edge="1" parent="1" source="UC8" target="UC2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                
+                <!-- Additional extend for View Details -->
+                <mxCell id="E4" value="«extend»" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="250" y="210" width="60" height="30" relative="1" as="geometry">
+                        <mxPoint x="240" y="210" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="E5" style="endArrow=open;html=1;dashed=1;" edge="1" parent="1" source="UC9" target="UC1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
