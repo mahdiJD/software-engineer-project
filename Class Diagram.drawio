@@ -1,0 +1,322 @@
+<mxfile host="app.diagrams.net" modified="2025-01-01T13:00:00.000Z" agent="Mozilla/5.0" version="29.2.4">
+    <diagram name="Class Diagram - Digikala System" id="class-diagram-digikala">
+        <mxGraphModel dx="1200" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1000">
+            <root>
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+                
+                <!-- =========================================== -->
+                <!-- CLASS 1: USER (Abstract Base Class) -->
+                <!-- =========================================== -->
+                <mxCell id="class_user" value="&lt;b&gt;User&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;&lt;i&gt;&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;------------------------&lt;br&gt;# id: int&lt;br&gt;# username: string&lt;br&gt;# email: string&lt;br&gt;# password: string&lt;br&gt;# phone: string&lt;br&gt;# createdAt: datetime&lt;br&gt;------------------------&lt;br&gt;+ login(username, password): bool&lt;br&gt;+ logout(): void&lt;br&gt;+ updateProfile(data): bool&lt;br&gt;# validatePassword(): bool" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="50" width="180" height="200" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CLASS 2: CUSTOMER -->
+                <!-- =========================================== -->
+                <mxCell id="class_customer" value="&lt;b&gt;Customer&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;+ address: string&lt;br&gt;+ city: string&lt;br&gt;+ postalCode: string&lt;br&gt;+ loyaltyPoints: int&lt;br&gt;------------------------&lt;br&gt;+ placeOrder(cart): Order&lt;br&gt;+ viewOrderHistory(): Order[]&lt;br&gt;+ addToCart(product, qty): bool&lt;br&gt;+ removeFromCart(productId): bool&lt;br&gt;+ updateShippingAddress(address): void&lt;br&gt;+ applyCoupon(code): bool" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="300" width="180" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CLASS 3: SELLER -->
+                <!-- =========================================== -->
+                <mxCell id="class_seller" value="&lt;b&gt;Seller&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;+ sellerCode: string&lt;br&gt;+ companyName: string&lt;br&gt;+ taxId: string&lt;br&gt;+ bankAccount: string&lt;br&gt;+ rating: float&lt;br&gt;------------------------&lt;br&gt;+ addProduct(product): bool&lt;br&gt;+ updateProduct(productId, data): bool&lt;br&gt;+ updateStock(productId, qty): bool&lt;br&gt;+ viewOrders(): Order[]&lt;br&gt;+ viewSalesReport(): Report&lt;br&gt;+ respondToReview(reviewId, response): bool" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="520" width="180" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CLASS 4: ADMIN -->
+                <!-- =========================================== -->
+                <mxCell id="class_admin" value="&lt;b&gt;Admin&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;+ adminLevel: string&lt;br&gt;+ department: string&lt;br&gt;+ permissions: string[]&lt;br&gt;------------------------&lt;br&gt;+ manageUsers(): User[]&lt;br&gt;+ manageProducts(): Product[]&lt;br&gt;+ generateReports(type): Report&lt;br&gt;+ banUser(userId): bool&lt;br&gt;+ approveSeller(sellerId): bool&lt;br&gt;+ viewSystemLogs(): Log[]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="740" width="180" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- INHERITANCE RELATIONSHIPS -->
+                <!-- =========================================== -->
+                <!-- Customer inherits from User -->
+                <mxCell id="inherit_customer" value="" style="endArrow=block;endSize=8;html=1;endFill=1;" edge="1" parent="1" source="class_customer" target="class_user">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="140" y="300" />
+                            <mxPoint x="140" y="250" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Seller inherits from User -->
+                <mxCell id="inherit_seller" value="" style="endArrow=block;endSize=8;html=1;endFill=1;" edge="1" parent="1" source="class_seller" target="class_user">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="140" y="520" />
+                            <mxPoint x="140" y="250" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Admin inherits from User -->
+                <mxCell id="inherit_admin" value="" style="endArrow=block;endSize=8;html=1;endFill=1;" edge="1" parent="1" source="class_admin" target="class_user">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="140" y="740" />
+                            <mxPoint x="140" y="250" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CLASS 5: PRODUCT -->
+                <!-- =========================================== -->
+                <mxCell id="class_product" value="&lt;b&gt;Product&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;- id: int&lt;br&gt;- title: string&lt;br&gt;- description: string&lt;br&gt;- price: decimal(10,2)&lt;br&gt;- stockQuantity: int&lt;br&gt;- categoryId: int&lt;br&gt;- sellerId: int&lt;br&gt;- imageUrl: string&lt;br&gt;- rating: float&lt;br&gt;- createdAt: datetime&lt;br&gt;- updatedAt: datetime&lt;br&gt;------------------------&lt;br&gt;+ getFinalPrice(): decimal&lt;br&gt;+ updateStock(qty): bool&lt;br&gt;+ isAvailable(): bool&lt;br&gt;+ addToWishlist(userId): bool&lt;br&gt;+ calculateDiscount(): decimal&lt;br&gt;+ getSimilarProducts(): Product[]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="50" width="200" height="250" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CLASS 6: CATEGORY -->
+                <!-- =========================================== -->
+                <mxCell id="class_category" value="&lt;b&gt;Category&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;- id: int&lt;br&gt;- name: string&lt;br&gt;- parentId: int&lt;br&gt;- description: string&lt;br&gt;- slug: string&lt;br&gt;- imageUrl: string&lt;br&gt;------------------------&lt;br&gt;+ getSubCategories(): Category[]&lt;br&gt;+ getProducts(): Product[]&lt;br&gt;+ getParentCategory(): Category&lt;br&gt;+ countProducts(): int" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="50" width="180" height="160" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CLASS 7: CART -->
+                <!-- =========================================== -->
+                <mxCell id="class_cart" value="&lt;b&gt;Cart&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;- id: int&lt;br&gt;- customerId: int&lt;br&gt;- createdAt: datetime&lt;br&gt;- updatedAt: datetime&lt;br&gt;------------------------&lt;br&gt;+ addItem(productId, qty): bool&lt;br&gt;+ removeItem(productId): bool&lt;br&gt;+ updateQuantity(productId, qty): bool&lt;br&gt;+ calculateTotal(): decimal&lt;br&gt;+ clearCart(): void&lt;br&gt;+ getItems(): CartItem[]&lt;br&gt;+ isEmpty(): bool" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="350" width="180" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CLASS 8: CART_ITEM -->
+                <!-- =========================================== -->
+                <mxCell id="class_cart_item" value="&lt;b&gt;CartItem&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;- id: int&lt;br&gt;- cartId: int&lt;br&gt;- productId: int&lt;br&gt;- quantity: int&lt;br&gt;- addedAt: datetime&lt;br&gt;------------------------&lt;br&gt;+ updateQuantity(qty): bool&lt;br&gt;+ calculateSubtotal(): decimal&lt;br&gt;+ getProduct(): Product" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="350" width="160" height="140" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CLASS 9: ORDER -->
+                <!-- =========================================== -->
+                <mxCell id="class_order" value="&lt;b&gt;Order&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;- id: int&lt;br&gt;- customerId: int&lt;br&gt;- orderNumber: string&lt;br&gt;- totalAmount: decimal(10,2)&lt;br&gt;- status: string&lt;br&gt;- shippingAddress: string&lt;br&gt;- orderDate: datetime&lt;br&gt;- estimatedDelivery: datetime&lt;br&gt;- trackingNumber: string&lt;br&gt;------------------------&lt;br&gt;+ calculateTotal(): decimal&lt;br&gt;+ updateStatus(newStatus): bool&lt;br&gt;+ cancelOrder(): bool&lt;br&gt;+ generateInvoice(): Invoice&lt;br&gt;+ getOrderItems(): OrderItem[]&lt;br&gt;+ addTracking(trackingNo): bool" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="580" width="200" height="210" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CLASS 10: ORDER_ITEM -->
+                <!-- =========================================== -->
+                <mxCell id="class_order_item" value="&lt;b&gt;OrderItem&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;- id: int&lt;br&gt;- orderId: int&lt;br&gt;- productId: int&lt;br&gt;- quantity: int&lt;br&gt;- unitPrice: decimal(10,2)&lt;br&gt;- subtotal: decimal(10,2)&lt;br&gt;------------------------&lt;br&gt;+ calculateSubtotal(): decimal&lt;br&gt;+ getProduct(): Product" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="580" width="160" height="140" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CLASS 11: PAYMENT -->
+                <!-- =========================================== -->
+                <mxCell id="class_payment" value="&lt;b&gt;Payment&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;- id: int&lt;br&gt;- orderId: int&lt;br&gt;- amount: decimal(10,2)&lt;br&gt;- paymentMethod: string&lt;br&gt;- transactionId: string&lt;br&gt;- status: string&lt;br&gt;- paymentDate: datetime&lt;br&gt;------------------------&lt;br&gt;+ processPayment(): bool&lt;br&gt;+ refundPayment(): bool&lt;br&gt;+ updateStatus(newStatus): bool&lt;br&gt;+ verifyPayment(): bool&lt;br&gt;+ generateReceipt(): Receipt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="50" width="180" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CLASS 12: REVIEW -->
+                <!-- =========================================== -->
+                <mxCell id="class_review" value="&lt;b&gt;Review&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;- id: int&lt;br&gt;- productId: int&lt;br&gt;- customerId: int&lt;br&gt;- rating: int (1-5)&lt;br&gt;- comment: string&lt;br&gt;- createdAt: datetime&lt;br&gt;- isVerifiedPurchase: bool&lt;br&gt;------------------------&lt;br&gt;+ addReview(): bool&lt;br&gt;+ updateReview(): bool&lt;br&gt;+ deleteReview(): bool&lt;br&gt;+ calculateAverageRating(): float&lt;br&gt;+ markAsHelpful(userId): bool" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="280" width="180" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CLASS 13: SHIPMENT -->
+                <!-- =========================================== -->
+                <mxCell id="class_shipment" value="&lt;b&gt;Shipment&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;- id: int&lt;br&gt;- orderId: int&lt;br&gt;- carrier: string&lt;br&gt;- trackingNumber: string&lt;br&gt;- status: string&lt;br&gt;- shippingDate: datetime&lt;br&gt;- deliveryDate: datetime&lt;br&gt;- shippingCost: decimal&lt;br&gt;------------------------&lt;br&gt;+ updateStatus(newStatus): bool&lt;br&gt;+ trackShipment(): string&lt;br&gt;+ calculateDeliveryDate(): datetime&lt;br&gt;+ printShippingLabel(): bool" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="510" width="180" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CLASS 14: COUPON -->
+                <!-- =========================================== -->
+                <mxCell id="class_coupon" value="&lt;b&gt;Coupon&lt;/b&gt;&lt;br&gt;------------------------&lt;br&gt;- id: int&lt;br&gt;- code: string&lt;br&gt;- discountType: string&lt;br&gt;- discountValue: decimal&lt;br&gt;- minPurchase: decimal&lt;br&gt;- maxDiscount: decimal&lt;br&gt;- validFrom: datetime&lt;br&gt;- validTo: datetime&lt;br&gt;- usageLimit: int&lt;br&gt;- usedCount: int&lt;br&gt;------------------------&lt;br&gt;+ isValid(): bool&lt;br&gt;+ calculateDiscount(total): decimal&lt;br&gt;+ applyCoupon(): bool&lt;br&gt;+ incrementUsage(): void" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="730" width="180" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- ASSOCIATION RELATIONSHIPS -->
+                <!-- =========================================== -->
+                
+                <!-- 1. Customer 1-1 Cart -->
+                <mxCell id="assoc1" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="class_customer" target="class_cart">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="230" y="390" as="sourcePoint" />
+                        <mxPoint x="300" y="390" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- 2. Customer 1-N Order -->
+                <mxCell id="assoc2" value="1..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="270" y="520" width="40" height="20" as="geometry" />
+                </mxCell>
+                <mxCell id="assoc2_line" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="class_customer" target="class_order">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="230" y="480" />
+                            <mxPoint x="270" y="480" />
+                            <mxPoint x="270" y="685" />
+                            <mxPoint x="300" y="685" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- 3. Customer 1-N Review -->
+                <mxCell id="assoc3" value="1..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="420" y="380" width="40" height="20" as="geometry" />
+                </mxCell>
+                <mxCell id="assoc3_line" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="class_customer" target="class_review">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="230" y="420" />
+                            <mxPoint x="420" y="420" />
+                            <mxPoint x="420" y="370" />
+                            <mxPoint x="740" y="370" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- 4. Seller 1-N Product -->
+                <mxCell id="assoc4" value="1..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="230" y="120" width="40" height="20" as="geometry" />
+                </mxCell>
+                <mxCell id="assoc4_line" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="class_seller" target="class_product">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="230" y="610" />
+                            <mxPoint x="230" y="120" />
+                            <mxPoint x="300" y="120" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- 5. Product N-1 Category -->
+                <mxCell id="assoc5" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="class_product" target="class_category">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="500" y="140" as="sourcePoint" />
+                        <mxPoint x="550" y="140" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- 6. Cart 1-N CartItem -->
+                <mxCell id="assoc6" value="1..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="440" y="420" width="40" height="20" as="geometry" />
+                </mxCell>
+                <mxCell id="assoc6_line" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="class_cart" target="class_cart_item">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="480" y="420" as="sourcePoint" />
+                        <mxPoint x="520" y="420" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- 7. CartItem N-1 Product -->
+                <mxCell id="assoc7" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="class_cart_item" target="class_product">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="600" y="420" />
+                            <mxPoint x="600" y="200" />
+                            <mxPoint x="500" y="200" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- 8. Order 1-N OrderItem -->
+                <mxCell id="assoc8" value="1..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="460" y="690" width="40" height="20" as="geometry" />
+                </mxCell>
+                <mxCell id="assoc8_line" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="class_order" target="class_order_item">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="500" y="690" as="sourcePoint" />
+                        <mxPoint x="540" y="690" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- 9. OrderItem N-1 Product -->
+                <mxCell id="assoc9" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="class_order_item" target="class_product">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="620" y="650" />
+                            <mxPoint x="620" y="200" />
+                            <mxPoint x="500" y="200" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- 10. Order 1-1 Payment -->
+                <mxCell id="assoc10" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="class_order" target="class_payment">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="500" y="685" />
+                            <mxPoint x="650" y="685" />
+                            <mxPoint x="650" y="140" />
+                            <mxPoint x="740" y="140" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- 11. Order 1-1 Shipment -->
+                <mxCell id="assoc11" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="class_order" target="class_shipment">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="500" y="720" />
+                            <mxPoint x="830" y="720" />
+                            <mxPoint x="830" y="600" />
+                            <mxPoint x="740" y="600" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- 12. Product 1-N Review -->
+                <mxCell id="assoc12" value="1..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="550" y="240" width="40" height="20" as="geometry" />
+                </mxCell>
+                <mxCell id="assoc12_line" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="class_product" target="class_review">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="500" y="240" />
+                            <mxPoint x="740" y="240" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- 13. Order can have 0..1 Coupon -->
+                <mxCell id="assoc13" value="0..1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="620" y="820" width="40" height="20" as="geometry" />
+                </mxCell>
+                <mxCell id="assoc13_line" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="class_order" target="class_coupon">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="500" y="790" />
+                            <mxPoint x="830" y="790" />
+                            <mxPoint x="830" y="820" />
+                            <mxPoint x="740" y="820" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- AGGREGATION: Order contains OrderItems -->
+                <!-- =========================================== -->
+                <mxCell id="agg1" value="" style="endArrow=open;html=1;endSize=8;dashed=1;" edge="1" parent="1" source="class_order" target="class_order_item">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="380" y="750" as="sourcePoint" />
+                        <mxPoint x="540" y="650" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- COMPOSITION: Cart contains CartItems -->
+                <!-- =========================================== -->
+                <mxCell id="comp1" value="" style="endArrow=open;html=1;endSize=8;dashed=1;" edge="1" parent="1" source="class_cart" target="class_cart_item">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="380" y="470" as="sourcePoint" />
+                        <mxPoint x="520" y="420" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

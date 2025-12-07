@@ -1,0 +1,334 @@
+<mxfile host="app.diagrams.net" modified="2025-01-01T14:00:00.000Z" agent="Mozilla/5.0" version="29.2.4">
+    <diagram name="ERD - Digikala Database" id="erd-digikala-database">
+        <mxGraphModel dx="1400" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1200">
+            <root>
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+                
+                <!-- =========================================== -->
+                <!-- TABLE 1: USERS (Parent Table) -->
+                <!-- =========================================== -->
+                <mxCell id="table_users" value="&lt;b&gt;USERS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;user_id&lt;/b&gt; INT&lt;br&gt;   | username VARCHAR(50)&lt;br&gt;   | email VARCHAR(100)&lt;br&gt;   | password_hash VARCHAR(255)&lt;br&gt;   | phone VARCHAR(15)&lt;br&gt;   | user_type ENUM('customer','seller','admin')&lt;br&gt;   | created_at TIMESTAMP&lt;br&gt;   | updated_at TIMESTAMP&lt;br&gt;   | is_active BOOLEAN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="100" width="200" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- TABLE 2: CUSTOMERS -->
+                <!-- =========================================== -->
+                <mxCell id="table_customers" value="&lt;b&gt;CUSTOMERS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;customer_id&lt;/b&gt; INT&lt;br&gt;FK | user_id INT&lt;br&gt;   | first_name VARCHAR(50)&lt;br&gt;   | last_name VARCHAR(50)&lt;br&gt;   | birth_date DATE&lt;br&gt;   | loyalty_points INT&lt;br&gt;   | total_orders INT&lt;br&gt;   | total_spent DECIMAL(12,2)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="320" width="200" height="160" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- TABLE 3: SELLERS -->
+                <!-- =========================================== -->
+                <mxCell id="table_sellers" value="&lt;b&gt;SELLERS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;seller_id&lt;/b&gt; INT&lt;br&gt;FK | user_id INT&lt;br&gt;   | company_name VARCHAR(100)&lt;br&gt;   | tax_id VARCHAR(20)&lt;br&gt;   | bank_account VARCHAR(50)&lt;br&gt;   | rating DECIMAL(3,2)&lt;br&gt;   | total_products INT&lt;br&gt;   | join_date DATE&lt;br&gt;   | is_verified BOOLEAN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="520" width="200" height="160" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- TABLE 4: ADMINS -->
+                <!-- =========================================== -->
+                <mxCell id="table_admins" value="&lt;b&gt;ADMINS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;admin_id&lt;/b&gt; INT&lt;br&gt;FK | user_id INT&lt;br&gt;   | department VARCHAR(50)&lt;br&gt;   | permissions TEXT&lt;br&gt;   | admin_level ENUM('super','normal')&lt;br&gt;   | last_login TIMESTAMP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="720" width="200" height="140" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- FOREIGN KEY RELATIONSHIPS -->
+                <!-- =========================================== -->
+                
+                <!-- Users → Customers (1:1) -->
+                <mxCell id="fk1" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_users" target="table_customers">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="280" as="sourcePoint" />
+                        <mxPoint x="200" y="320" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Users → Sellers (1:1) -->
+                <mxCell id="fk2" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_users" target="table_sellers">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="280" as="sourcePoint" />
+                        <mxPoint x="200" y="520" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Users → Admins (1:1) -->
+                <mxCell id="fk3" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_users" target="table_admins">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="280" as="sourcePoint" />
+                        <mxPoint x="200" y="720" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- TABLE 5: CATEGORIES -->
+                <!-- =========================================== -->
+                <mxCell id="table_categories" value="&lt;b&gt;CATEGORIES&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;category_id&lt;/b&gt; INT&lt;br&gt;FK | parent_id INT&lt;br&gt;   | category_name VARCHAR(100)&lt;br&gt;   | description TEXT&lt;br&gt;   | slug VARCHAR(100)&lt;br&gt;   | image_url VARCHAR(255)&lt;br&gt;   | sort_order INT&lt;br&gt;   | is_active BOOLEAN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="100" width="200" height="160" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- TABLE 6: PRODUCTS -->
+                <!-- =========================================== -->
+                <mxCell id="table_products" value="&lt;b&gt;PRODUCTS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;product_id&lt;/b&gt; INT&lt;br&gt;FK | category_id INT&lt;br&gt;FK | seller_id INT&lt;br&gt;   | product_name VARCHAR(200)&lt;br&gt;   | description TEXT&lt;br&gt;   | price DECIMAL(10,2)&lt;br&gt;   | stock_quantity INT&lt;br&gt;   | sku VARCHAR(50)&lt;br&gt;   | rating DECIMAL(3,2)&lt;br&gt;   | total_reviews INT&lt;br&gt;   | created_at TIMESTAMP&lt;br&gt;   | updated_at TIMESTAMP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="300" width="200" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- TABLE 7: PRODUCT_IMAGES -->
+                <!-- =========================================== -->
+                <mxCell id="table_product_images" value="&lt;b&gt;PRODUCT_IMAGES&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;image_id&lt;/b&gt; INT&lt;br&gt;FK | product_id INT&lt;br&gt;   | image_url VARCHAR(255)&lt;br&gt;   | alt_text VARCHAR(100)&lt;br&gt;   | is_primary BOOLEAN&lt;br&gt;   | sort_order INT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="520" width="200" height="140" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- TABLE 8: CARTS -->
+                <!-- =========================================== -->
+                <mxCell id="table_carts" value="&lt;b&gt;CARTS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;cart_id&lt;/b&gt; INT&lt;br&gt;FK | customer_id INT&lt;br&gt;   | created_at TIMESTAMP&lt;br&gt;   | updated_at TIMESTAMP&lt;br&gt;   | total_items INT&lt;br&gt;   | total_amount DECIMAL(10,2)&lt;br&gt;   | is_active BOOLEAN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="700" width="200" height="140" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- TABLE 9: CART_ITEMS -->
+                <!-- =========================================== -->
+                <mxCell id="table_cart_items" value="&lt;b&gt;CART_ITEMS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;cart_item_id&lt;/b&gt; INT&lt;br&gt;FK | cart_id INT&lt;br&gt;FK | product_id INT&lt;br&gt;   | quantity INT&lt;br&gt;   | unit_price DECIMAL(10,2)&lt;br&gt;   | subtotal DECIMAL(10,2)&lt;br&gt;   | added_at TIMESTAMP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="880" width="200" height="140" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- FOREIGN KEY RELATIONSHIPS - SECTION 2 -->
+                <!-- =========================================== -->
+                
+                <!-- Categories → Products (1:N) -->
+                <mxCell id="fk4" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_categories" target="table_products">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="450" y="260" as="sourcePoint" />
+                        <mxPoint x="450" y="300" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Sellers → Products (1:N) -->
+                <mxCell id="fk5" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_sellers" target="table_products">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="300" y="600" />
+                            <mxPoint x="350" y="600" />
+                            <mxPoint x="350" y="390" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Products → Product_Images (1:N) -->
+                <mxCell id="fk6" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_products" target="table_product_images">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="450" y="480" as="sourcePoint" />
+                        <mxPoint x="450" y="520" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Customers → Carts (1:1) -->
+                <mxCell id="fk7" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_customers" target="table_carts">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="300" y="480" />
+                            <mxPoint x="350" y="480" />
+                            <mxPoint x="350" y="700" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Carts → Cart_Items (1:N) -->
+                <mxCell id="fk8" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_carts" target="table_cart_items">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="450" y="840" as="sourcePoint" />
+                        <mxPoint x="450" y="880" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Products → Cart_Items (1:N) -->
+                <mxCell id="fk9" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_products" target="table_cart_items">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="450" y="480" />
+                            <mxPoint x="550" y="480" />
+                            <mxPoint x="550" y="950" />
+                            <mxPoint x="450" y="950" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- SECTION 3: ORDERS & PAYMENTS -->
+                <!-- =========================================== -->
+                
+                <!-- TABLE 10: ORDERS -->
+                <mxCell id="table_orders" value="&lt;b&gt;ORDERS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;order_id&lt;/b&gt; INT&lt;br&gt;FK | customer_id INT&lt;br&gt;FK | coupon_id INT&lt;br&gt;   | order_number VARCHAR(20)&lt;br&gt;   | total_amount DECIMAL(12,2)&lt;br&gt;   | status ENUM('pending','paid','shipped','delivered','cancelled')&lt;br&gt;   | order_date TIMESTAMP&lt;br&gt;   | shipping_address TEXT&lt;br&gt;   | billing_address TEXT&lt;br&gt;   | notes TEXT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="100" width="220" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- TABLE 11: ORDER_ITEMS -->
+                <mxCell id="table_order_items" value="&lt;b&gt;ORDER_ITEMS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;order_item_id&lt;/b&gt; INT&lt;br&gt;FK | order_id INT&lt;br&gt;FK | product_id INT&lt;br&gt;   | quantity INT&lt;br&gt;   | unit_price DECIMAL(10,2)&lt;br&gt;   | subtotal DECIMAL(10,2)&lt;br&gt;   | discount_amount DECIMAL(10,2)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="320" width="220" height="140" as="geometry" />
+                </mxCell>
+                
+                <!-- TABLE 12: PAYMENTS -->
+                <mxCell id="table_payments" value="&lt;b&gt;PAYMENTS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;payment_id&lt;/b&gt; INT&lt;br&gt;FK | order_id INT&lt;br&gt;   | amount DECIMAL(10,2)&lt;br&gt;   | payment_method VARCHAR(50)&lt;br&gt;   | transaction_id VARCHAR(100)&lt;br&gt;   | status ENUM('pending','completed','failed','refunded')&lt;br&gt;   | payment_date TIMESTAMP&lt;br&gt;   | bank_reference VARCHAR(100)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="500" width="220" height="160" as="geometry" />
+                </mxCell>
+                
+                <!-- TABLE 13: COUPONS -->
+                <mxCell id="table_coupons" value="&lt;b&gt;COUPONS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;coupon_id&lt;/b&gt; INT&lt;br&gt;   | coupon_code VARCHAR(20)&lt;br&gt;   | discount_type ENUM('percentage','fixed')&lt;br&gt;   | discount_value DECIMAL(10,2)&lt;br&gt;   | min_purchase DECIMAL(10,2)&lt;br&gt;   | valid_from DATE&lt;br&gt;   | valid_to DATE&lt;br&gt;   | usage_limit INT&lt;br&gt;   | used_count INT&lt;br&gt;   | is_active BOOLEAN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="700" width="220" height="160" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- FOREIGN KEY RELATIONSHIPS - SECTION 3 -->
+                <!-- =========================================== -->
+                
+                <!-- Customers → Orders (1:N) -->
+                <mxCell id="fk10" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_customers" target="table_orders">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="300" y="400" />
+                            <mxPoint x="600" y="400" />
+                            <mxPoint x="600" y="190" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Orders → Order_Items (1:N) -->
+                <mxCell id="fk11" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_orders" target="table_order_items">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="710" y="280" as="sourcePoint" />
+                        <mxPoint x="710" y="320" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Products → Order_Items (1:N) -->
+                <mxCell id="fk12" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_products" target="table_order_items">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="550" y="390" />
+                            <mxPoint x="710" y="390" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Orders → Payments (1:1) -->
+                <mxCell id="fk13" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_orders" target="table_payments">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="710" y="280" as="sourcePoint" />
+                        <mxPoint x="710" y="500" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Coupons → Orders (1:N) -->
+                <mxCell id="fk14" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_coupons" target="table_orders">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="710" y="700" as="sourcePoint" />
+                        <mxPoint x="710" y="280" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- SECTION 4: SHIPMENTS & REVIEWS -->
+                <!-- =========================================== -->
+                
+                <!-- TABLE 14: SHIPMENTS -->
+                <mxCell id="table_shipments" value="&lt;b&gt;SHIPMENTS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;shipment_id&lt;/b&gt; INT&lt;br&gt;FK | order_id INT&lt;br&gt;   | carrier VARCHAR(50)&lt;br&gt;   | tracking_number VARCHAR(50)&lt;br&gt;   | status ENUM('processing','shipped','in_transit','delivered')&lt;br&gt;   | shipping_date DATE&lt;br&gt;   | estimated_delivery DATE&lt;br&gt;   | actual_delivery DATE&lt;br&gt;   | shipping_cost DECIMAL(10,2)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="870" y="100" width="220" height="160" as="geometry" />
+                </mxCell>
+                
+                <!-- TABLE 15: REVIEWS -->
+                <mxCell id="table_reviews" value="&lt;b&gt;REVIEWS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;review_id&lt;/b&gt; INT&lt;br&gt;FK | product_id INT&lt;br&gt;FK | customer_id INT&lt;br&gt;   | rating INT&lt;br&gt;   | title VARCHAR(200)&lt;br&gt;   | comment TEXT&lt;br&gt;   | is_verified_purchase BOOLEAN&lt;br&gt;   | helpful_count INT&lt;br&gt;   | created_at TIMESTAMP&lt;br&gt;   | is_approved BOOLEAN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
+                    <mxGeometry x="870" y="300" width="220" height="160" as="geometry" />
+                </mxCell>
+                
+                <!-- TABLE 16: WISHLISTS -->
+                <mxCell id="table_wishlists" value="&lt;b&gt;WISHLISTS&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;wishlist_id&lt;/b&gt; INT&lt;br&gt;FK | customer_id INT&lt;br&gt;FK | product_id INT&lt;br&gt;   | added_at TIMESTAMP&lt;br&gt;   | notes VARCHAR(255)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+                    <mxGeometry x="870" y="500" width="220" height="140" as="geometry" />
+                </mxCell>
+                
+                <!-- TABLE 17: ADDRESSES -->
+                <mxCell id="table_addresses" value="&lt;b&gt;ADDRESSES&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;PK | &lt;b&gt;address_id&lt;/b&gt; INT&lt;br&gt;FK | customer_id INT&lt;br&gt;   | address_type ENUM('shipping','billing')&lt;br&gt;   | full_name VARCHAR(100)&lt;br&gt;   | phone VARCHAR(15)&lt;br&gt;   | address_line1 VARCHAR(255)&lt;br&gt;   | address_line2 VARCHAR(255)&lt;br&gt;   | city VARCHAR(50)&lt;br&gt;   | state VARCHAR(50)&lt;br&gt;   | postal_code VARCHAR(20)&lt;br&gt;   | country VARCHAR(50)&lt;br&gt;   | is_default BOOLEAN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+                    <mxGeometry x="870" y="680" width="220" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- FOREIGN KEY RELATIONSHIPS - SECTION 4 -->
+                <!-- =========================================== -->
+                
+                <!-- Orders → Shipments (1:1) -->
+                <mxCell id="fk15" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_orders" target="table_shipments">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="820" y="190" as="sourcePoint" />
+                        <mxPoint x="870" y="190" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Products → Reviews (1:N) -->
+                <mxCell id="fk16" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_products" target="table_reviews">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="550" y="390" />
+                            <mxPoint x="980" y="390" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Customers → Reviews (1:N) -->
+                <mxCell id="fk17" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_customers" target="table_reviews">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="300" y="400" />
+                            <mxPoint x="980" y="400" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Customers → Wishlists (1:N) -->
+                <mxCell id="fk18" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_customers" target="table_wishlists">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="300" y="400" />
+                            <mxPoint x="980" y="570" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Products → Wishlists (1:N) -->
+                <mxCell id="fk19" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_products" target="table_wishlists">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="550" y="390" />
+                            <mxPoint x="980" y="570" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Customers → Addresses (1:N) -->
+                <mxCell id="fk20" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#0000FF;" edge="1" parent="1" source="table_customers" target="table_addresses">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="300" y="400" />
+                            <mxPoint x="980" y="770" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- INDEXES AND NOTES -->
+                <!-- =========================================== -->
+                <mxCell id="note1" value="&lt;b&gt;Database Notes:&lt;/b&gt;&lt;br&gt;1. PK = Primary Key&lt;br&gt;2. FK = Foreign Key&lt;br&gt;3. All tables have created_at/updated_at&lt;br&gt;4. Indexes on foreign keys&lt;br&gt;5. Composite PK for some tables&lt;br&gt;6. Cascade delete for relationships" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="900" width="300" height="100" as="geometry" />
+                </mxCell>
+                
+                <mxCell id="note2" value="&lt;b&gt;Important Indexes:&lt;/b&gt;&lt;br&gt;• products(category_id)&lt;br&gt;• products(seller_id)&lt;br&gt;• orders(customer_id)&lt;br&gt;• orders(status)&lt;br&gt;• order_items(order_id)&lt;br&gt;• reviews(product_id, rating)&lt;br&gt;• payments(order_id)&lt;br&gt;• cart_items(cart_id)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="1050" width="300" height="100" as="geometry" />
+                </mxCell>
+                
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

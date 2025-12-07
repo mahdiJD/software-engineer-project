@@ -1,0 +1,354 @@
+<mxfile host="app.diagrams.net" modified="2025-01-01T15:00:00.000Z" agent="Mozilla/5.0" version="29.2.4">
+    <diagram name="Component Diagram - Digikala Architecture" id="component-diagram-digikala">
+        <mxGraphModel dx="1400" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000">
+            <root>
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+                
+                <!-- =========================================== -->
+                <!-- EXTERNAL SYSTEMS -->
+                <!-- =========================================== -->
+                <mxCell id="external_user" value="&lt;b&gt;User&lt;/b&gt;&lt;br&gt;(Customer/Seller/Admin)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="300" width="40" height="80" as="geometry" />
+                </mxCell>
+                
+                <mxCell id="external_bank" value="&lt;b&gt;Bank API&lt;/b&gt;&lt;br&gt;(Payment Gateway)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="1150" y="300" width="120" height="60" as="geometry" />
+                </mxCell>
+                
+                <mxCell id="external_sms" value="&lt;b&gt;SMS Service&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="1150" y="400" width="120" height="60" as="geometry" />
+                </mxCell>
+                
+                <mxCell id="external_email" value="&lt;b&gt;Email Service&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="1150" y="500" width="120" height="60" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- LAYER 1: PRESENTATION LAYER -->
+                <!-- =========================================== -->
+                <mxCell id="layer1_label" value="&lt;b&gt;Presentation Layer&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="50" width="200" height="30" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 1: Web Frontend -->
+                <mxCell id="comp_web_frontend" value="&lt;b&gt;Web Frontend&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;React/Vue.js&lt;/i&gt;&lt;br&gt;• Product Browsing&lt;br&gt;• Shopping Cart&lt;br&gt;• Checkout UI&lt;br&gt;• User Dashboard" style="shape=component;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="100" width="180" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 2: Mobile App -->
+                <mxCell id="comp_mobile_app" value="&lt;b&gt;Mobile App&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;React Native&lt;/i&gt;&lt;br&gt;• iOS/Android&lt;br&gt;• Push Notifications&lt;br&gt;• Offline Support&lt;br&gt;• Camera Features" style="shape=component;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="100" width="180" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 3: Admin Panel -->
+                <mxCell id="comp_admin_panel" value="&lt;b&gt;Admin Panel&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;Angular/React&lt;/i&gt;&lt;br&gt;• User Management&lt;br&gt;• Product Management&lt;br&gt;• Order Management&lt;br&gt;• Analytics Dashboard" style="shape=component;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="100" width="180" height="180" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- LAYER 2: APPLICATION LAYER -->
+                <!-- =========================================== -->
+                <mxCell id="layer2_label" value="&lt;b&gt;Application Layer (Microservices)&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="320" width="300" height="30" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 4: User Service -->
+                <mxCell id="comp_user_service" value="&lt;b&gt;User Service&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;Node.js/Spring Boot&lt;/i&gt;&lt;br&gt;• Authentication&lt;br&gt;• Authorization&lt;br&gt;• Profile Management&lt;br&gt;• Session Handling" style="shape=component;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="370" width="160" height="160" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 5: Product Service -->
+                <mxCell id="comp_product_service" value="&lt;b&gt;Product Service&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;Node.js/Spring Boot&lt;/i&gt;&lt;br&gt;• Product Catalog&lt;br&gt;• Search &amp; Filter&lt;br&gt;• Inventory Management&lt;br&gt;• Price Management" style="shape=component;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="370" width="160" height="160" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 6: Order Service -->
+                <mxCell id="comp_order_service" value="&lt;b&gt;Order Service&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;Node.js/Spring Boot&lt;/i&gt;&lt;br&gt;• Shopping Cart&lt;br&gt;• Checkout Process&lt;br&gt;• Order Processing&lt;br&gt;• Order Tracking" style="shape=component;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="370" width="160" height="160" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 7: Payment Service -->
+                <mxCell id="comp_payment_service" value="&lt;b&gt;Payment Service&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;Node.js/Spring Boot&lt;/i&gt;&lt;br&gt;• Payment Processing&lt;br&gt;• Transaction Management&lt;br&gt;• Refund Handling&lt;br&gt;• Bank Integration" style="shape=component;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="370" width="160" height="160" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 8: Notification Service -->
+                <mxCell id="comp_notification_service" value="&lt;b&gt;Notification Service&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;Node.js/Spring Boot&lt;/i&gt;&lt;br&gt;• Email Notifications&lt;br&gt;• SMS Alerts&lt;br&gt;• Push Notifications&lt;br&gt;• Notification Templates" style="shape=component;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="820" y="370" width="160" height="160" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- LAYER 3: DATA LAYER -->
+                <!-- =========================================== -->
+                <mxCell id="layer3_label" value="&lt;b&gt;Data Layer&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="580" width="200" height="30" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 9: Main Database -->
+                <mxCell id="comp_main_db" value="&lt;b&gt;Main Database&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;PostgreSQL/MySQL&lt;/i&gt;&lt;br&gt;• Users Data&lt;br&gt;• Products Data&lt;br&gt;• Orders Data&lt;br&gt;• Transactions" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="630" width="160" height="140" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 10: Cache -->
+                <mxCell id="comp_cache" value="&lt;b&gt;Cache System&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;Redis&lt;/i&gt;&lt;br&gt;• Session Storage&lt;br&gt;• Product Cache&lt;br&gt;• Shopping Cart&lt;br&gt;• Rate Limiting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="630" width="140" height="120" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 11: Search Engine -->
+                <mxCell id="comp_search_engine" value="&lt;b&gt;Search Engine&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;Elasticsearch&lt;/i&gt;&lt;br&gt;• Product Search&lt;br&gt;• Full-text Search&lt;br&gt;• Auto-suggest&lt;br&gt;• Analytics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
+                    <mxGeometry x="580" y="630" width="140" height="120" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 12: File Storage -->
+                <mxCell id="comp_file_storage" value="&lt;b&gt;File Storage&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;AWS S3/MinIO&lt;/i&gt;&lt;br&gt;• Product Images&lt;br&gt;• User Avatars&lt;br&gt;• Documents&lt;br&gt;• Backups" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" vertex="1" parent="1">
+                    <mxGeometry x="760" y="630" width="140" height="120" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- INFRASTRUCTURE COMPONENTS -->
+                <!-- =========================================== -->
+                <mxCell id="layer4_label" value="&lt;b&gt;Infrastructure&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="780" width="200" height="30" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 13: API Gateway -->
+                <mxCell id="comp_api_gateway" value="&lt;b&gt;API Gateway&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;Nginx/Kong&lt;/i&gt;&lt;br&gt;• Request Routing&lt;br&gt;• Load Balancing&lt;br&gt;• Rate Limiting&lt;br&gt;• SSL Termination" style="shape=component;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="820" width="140" height="120" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 14: Service Discovery -->
+                <mxCell id="comp_service_discovery" value="&lt;b&gt;Service Discovery&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;Consul/Eureka&lt;/i&gt;&lt;br&gt;• Service Registry&lt;br&gt;• Health Checks&lt;br&gt;• Service Mesh&lt;br&gt;• DNS Resolution" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="820" width="140" height="120" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 15: Message Queue -->
+                <mxCell id="comp_message_queue" value="&lt;b&gt;Message Queue&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;RabbitMQ/Kafka&lt;/i&gt;&lt;br&gt;• Async Communication&lt;br&gt;• Event Streaming&lt;br&gt;• Order Processing&lt;br&gt;• Notification Queue" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#fff2cc;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="820" width="140" height="120" as="geometry" />
+                </mxCell>
+                
+                <!-- Component 16: Monitoring -->
+                <mxCell id="comp_monitoring" value="&lt;b&gt;Monitoring&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;&lt;i&gt;Prometheus/Grafana&lt;/i&gt;&lt;br&gt;• Metrics Collection&lt;br&gt;• Log Aggregation&lt;br&gt;• Alerting&lt;br&gt;• Performance Monitoring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="820" width="140" height="120" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CONNECTIONS: PRESENTATION → APPLICATION -->
+                <!-- =========================================== -->
+                
+                <!-- Web Frontend → User Service -->
+                <mxCell id="conn1" value="" style="endArrow=open;html=1;endSize=8;dashed=1;" edge="1" parent="1" source="comp_web_frontend" target="comp_user_service">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="240" y="280" as="sourcePoint" />
+                        <mxPoint x="180" y="370" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Web Frontend → Product Service -->
+                <mxCell id="conn2" value="" style="endArrow=open;html=1;endSize=8;dashed=1;" edge="1" parent="1" source="comp_web_frontend" target="comp_product_service">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="240" y="280" as="sourcePoint" />
+                        <mxPoint x="360" y="370" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Web Frontend → Order Service -->
+                <mxCell id="conn3" value="" style="endArrow=open;html=1;endSize=8;dashed=1;" edge="1" parent="1" source="comp_web_frontend" target="comp_order_service">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="240" y="280" as="sourcePoint" />
+                        <mxPoint x="540" y="370" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Mobile App → All Services -->
+                <mxCell id="conn4" value="" style="endArrow=open;html=1;endSize=8;dashed=1;" edge="1" parent="1" source="comp_mobile_app" target="comp_user_service">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="440" y="280" />
+                            <mxPoint x="440" y="320" />
+                            <mxPoint x="180" y="320" />
+                            <mxPoint x="180" y="370" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Admin Panel → All Services -->
+                <mxCell id="conn5" value="" style="endArrow=open;html=1;endSize=8;dashed=1;" edge="1" parent="1" source="comp_admin_panel" target="comp_user_service">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="640" y="280" />
+                            <mxPoint x="640" y="320" />
+                            <mxPoint x="180" y="320" />
+                            <mxPoint x="180" y="370" />
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CONNECTIONS: APPLICATION → DATA -->
+                <!-- =========================================== -->
+                
+                <!-- User Service → Main DB -->
+                <mxCell id="conn6" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="comp_user_service" target="comp_main_db">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="180" y="530" as="sourcePoint" />
+                        <mxPoint x="280" y="630" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Product Service → Main DB -->
+                <mxCell id="conn7" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="comp_product_service" target="comp_main_db">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="360" y="530" as="sourcePoint" />
+                        <mxPoint x="280" y="630" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Product Service → Cache -->
+                <mxCell id="conn8" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="comp_product_service" target="comp_cache">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="360" y="530" as="sourcePoint" />
+                        <mxPoint x="470" y="630" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Product Service → Search Engine -->
+                <mxCell id="conn9" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="comp_product_service" target="comp_search_engine">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="440" y="530" as="sourcePoint" />
+                        <mxPoint x="650" y="630" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Order Service → Main DB -->
+                <mxCell id="conn10" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="comp_order_service" target="comp_main_db">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="540" y="530" as="sourcePoint" />
+                        <mxPoint x="280" y="630" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Order Service → Message Queue -->
+                <mxCell id="conn11" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="comp_order_service" target="comp_message_queue">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="540" y="530" as="sourcePoint" />
+                        <mxPoint x="590" y="820" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Payment Service → Main DB -->
+                <mxCell id="conn12" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="comp_payment_service" target="comp_main_db">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="720" y="530" as="sourcePoint" />
+                        <mxPoint x="280" y="630" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Payment Service → Bank API -->
+                <mxCell id="conn13" value="&lt;b&gt;HTTPS&lt;/b&gt;" style="endArrow=open;html=1;endSize=8;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;" edge="1" parent="1" source="comp_payment_service" target="external_bank">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="800" y="450" as="sourcePoint" />
+                        <mxPoint x="1150" y="330" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- Notification Service → External Services -->
+                <mxCell id="conn14" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="comp_notification_service" target="external_sms">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="980" y="450" as="sourcePoint" />
+                        <mxPoint x="1150" y="430" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <mxCell id="conn15" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="comp_notification_service" target="external_email">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="980" y="450" as="sourcePoint" />
+                        <mxPoint x="1150" y="530" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- CONNECTIONS: INFRASTRUCTURE -->
+                <!-- =========================================== -->
+                
+                <!-- All Services → API Gateway -->
+                <mxCell id="conn16" value="" style="endArrow=open;html=1;endSize=8;dashed=1;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="250" y="370" as="sourcePoint" />
+                        <mxPoint x="250" y="820" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- API Gateway → Service Discovery -->
+                <mxCell id="conn17" value="" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="comp_api_gateway" target="comp_service_discovery">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="320" y="880" as="sourcePoint" />
+                        <mxPoint x="350" y="880" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- All Services → Monitoring -->
+                <mxCell id="conn18" value="" style="endArrow=open;html=1;endSize=8;dashed=1;strokeColor=#666666;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="360" y="450" as="sourcePoint" />
+                        <mxPoint x="760" y="880" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- USER CONNECTIONS -->
+                <!-- =========================================== -->
+                
+                <!-- User → Web Frontend -->
+                <mxCell id="user_conn1" value="&lt;b&gt;HTTP/HTTPS&lt;/b&gt;" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="external_user" target="comp_web_frontend">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="90" y="340" as="sourcePoint" />
+                        <mxPoint x="150" y="190" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- User → Mobile App -->
+                <mxCell id="user_conn2" value="&lt;b&gt;Mobile App&lt;/b&gt;" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="external_user" target="comp_mobile_app">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="90" y="340" as="sourcePoint" />
+                        <mxPoint x="350" y="190" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- User → Admin Panel -->
+                <mxCell id="user_conn3" value="&lt;b&gt;Admin Access&lt;/b&gt;" style="endArrow=open;html=1;endSize=8;" edge="1" parent="1" source="external_user" target="comp_admin_panel">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="90" y="340" as="sourcePoint" />
+                        <mxPoint x="550" y="190" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- PORTS AND INTERFACES -->
+                <!-- =========================================== -->
+                
+                <!-- Provided Interface: User Service -->
+                <mxCell id="port_user_service" value="" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="520" width="10" height="10" as="geometry" />
+                </mxCell>
+                
+                <!-- Required Interface: Payment Service -->
+                <mxCell id="port_payment_service" value="" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="710" y="520" width="10" height="10" as="geometry" />
+                </mxCell>
+                
+                <!-- =========================================== -->
+                <!-- LEGEND -->
+                <!-- =========================================== -->
+                <mxCell id="legend" value="&lt;b&gt;Legend&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;• &lt;span style='color:#dae8fc'&gt;█&lt;/span&gt; Presentation Layer&lt;br&gt;• &lt;span style='color:#d5e8d4'&gt;█&lt;/span&gt; Business Logic&lt;br&gt;• &lt;span style='color:#fff2cc'&gt;█&lt;/span&gt; Data Storage&lt;br&gt;• &lt;span style='color:#f5f5f5'&gt;█&lt;/span&gt; Infrastructure&lt;br&gt;• &lt;span style='color:#f8cecc'&gt;█&lt;/span&gt; External Systems&lt;br&gt;• &lt;b&gt;Solid Line&lt;/b&gt;: Direct Dependency&lt;br&gt;• &lt;b&gt;Dashed Line&lt;/b&gt;: Indirect Dependency" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="1000" y="100" width="250" height="180" as="geometry" />
+                </mxCell>
+                
+                <mxCell id="legend2" value="&lt;b&gt;Architecture Principles&lt;/b&gt;&lt;br&gt;-------------------&lt;br&gt;• Microservices Architecture&lt;br&gt;• RESTful APIs&lt;br&gt;• Database per Service&lt;br&gt;• Async Communication&lt;br&gt;• Caching Strategy&lt;br&gt;• Horizontal Scaling&lt;br&gt;• Fault Tolerance&lt;br&gt;• Monitoring &amp; Logging" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="1000" y="650" width="250" height="180" as="geometry" />
+                </mxCell>
+                
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
